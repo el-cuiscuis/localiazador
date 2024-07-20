@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Venta de Cuyes</title>
+    <link href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #126332;
+            text-align: center;
+            color: #000000; /* Color de letra negro */
+        }
+
+        header,
+        nav,
+        main,
+        footer {
+            margin: 20px auto;
+        }
+
+        header img {
+            width: 100%; /* Ancho del logo igual al ancho del banner */
+            height: 300px; /* Alto del logo aumentado */
+            object-fit: cover; /* Asegura que la imagen se ajuste bien */
+        }
+
+        .banner {
+            width: 100%; /* Ancho completo del banner */
+            height: auto;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .product-img,
+        .recipe-img {
+            width: 100%;
+            height: auto;
+        }
+
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: 0 auto; /* Centrar la tabla */
+            background-color: white; /* Fondo blanco */
+        }
+
+        th,
+        td {
+            border: 1px solid #d47575;
+            padding: 8px;
+        }
+
+        nav {
+            background-color: rgb(214, 214, 6); /* Fondo amarillo para el menú */
+            padding: 10px;
+            border-bottom: 1px solid #126332; /* Adelgazar línea del menú */
+        }
+
+        nav a,
+        nav strong {
+            color: #126332; /* Color verde para el texto */
+            margin: 0 15px; /* Separación entre los botones */
+        }
+
+        nav ul ul li a {
+            background-color: #126332; /* Color verde para los botones */
+            color: white; /* Color de letra blanca */
+        }
+
+        nav ul li a {
+            background-color: #126332; /* Color verde para todos los botones */
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin: 0 10px; /* Separación entre los botones */
+        }
+
+        .product-section {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            text-align: left; /* Alinear texto a la izquierda */
+            padding: 20px 0;
+        }
+
+        .product-section img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            margin: 10px;
+            border-radius: 15px; /* Bordes redondeados para las imágenes */
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Efecto de transición */
+        }
+
+        .product-section img:hover {
+            transform: scale(1.05); /* Efecto de zoom al pasar el ratón */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra al pasar el ratón */
+        }
+
+        .product-section:nth-child(even) {
+            flex-direction: row-reverse; /* Intercalar imágenes y textos */
+        }
+
+        .product-section h2 {
+            width: 100%;
+            text-align: center;
+            margin: 20px 0;
+            animation: fadeIn 1s ease-in-out; /* Animación de aparición */
+        }
+
+        .product-section p {
+            max-width: 400px;
+            margin: 10px;
+            font-size: 14px; /* Tamaño de letra reducido */
+            background-color: rgba(255, 255, 255, 0.5); /* Fondo blanco más transparente */
+            padding: 10px;
+            border-radius: 5px; /* Bordes redondeados */
+            color: #000000; /* Color de letra negro */
+            transition: background-color 0.3s ease-in-out; /* Efecto de transición */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+        }
+
+        .product-section p:hover {
+            background-color: rgba(255, 255, 255, 0.7); /* Fondo más opaco al pasar el ratón */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+        }
+
+        .section-title {
+            position: relative;
+            color: #ffffff; /* Color blanco para los títulos */
+            font-size: 2em; /* Tamaño más grande para los títulos */
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease-in-out; /* Animación de aparición */
+        }
+
+        .section-title::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: #ffffff; /* Línea blanca */
+            bottom: -5px;
+            left: 0;
+        }
+
+        .recipe-img {
+            width: 100%;
+            height: 200px; /* Altura fija para todas las imágenes de recetas */
+            object-fit: cover; /* Asegura que las imágenes se ajusten bien */
+            border-radius: 10px; /* Bordes redondeados */
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Efecto de transición */
+        }
+
+        .recipe-img:hover {
+            transform: scale(1.05); /* Efecto de zoom al pasar el ratón */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra al pasar el ratón */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .recipe-description {
+            color: #000000; /* Color de letra negro para las descripciones de recetas */
+        }
+    </style>
+</head>
+
+<body>
+    <header class="container">
+        <img src="img/Sin título-565.jpg" alt="Logo de Cuyes">
+    </header>
+    <nav class="container-fluid">
+        <ul>
+            <li><a href="file:///C:/Users/DELL/Music/PAGINA/index.html">Inicio</a></li>
+            <li><a href="file:///C:/Users/DELL/Music/PAGINA/Untitled-1.html">Productos</a></li>
+            <li><a href="file:///C:/Users/DELL/Music/PAGINA/Untitled-2.html">Contactos</a></li>
+        </ul>
+    </nav>
+    <main class="container-fluid">
+        <img src="img/BANNER.jpg" class="banner" alt="Banner de Cuyes">
+        <div class="container">
+            <h1 class="section-title">NUESTROS PRODUCTOS</h1>
+            <div class="product-section">
+                <h2>CRIANZA NATURAL Y SOSTENIBLE</h2>
+                <img src="img/CUY 1.jpg" class="product-img" alt="Cuy en Jaula">
+                <p>Nuestros cuyes son criados en entornos naturales y sostenibles, garantizando que reciban una dieta balanceada y libre de hormonas y antibióticos. Esto no solo asegura la calidad del producto, sino que también es mejor para el medio ambiente y el bienestar animal.</p>
+            </div>
+            <div class="product-section">
+                <h2>ALTO VALOR NUTRICIONAL</h2>
+                <img src="img/Sin título-2.jpg" class="product-img" alt="Cuy comiendo Vegetales">
+                <p>Los cuyes son una excelente fuente de proteínas magras, esenciales para el crecimiento y reparación de tejidos. Además, contienen vitaminas y minerales como el hierro y la vitamina B12, que son cruciales para mantener una buena salud.</p>
+            </div>
+            <div class="product-section">
+                <h2>BAJO EN GRASAS Y COLESTEROL</h2>
+                <img src="img/CUY 3.jpg" class="product-img" alt="Cuy Asado">
+                <p>A diferencia de otras carnes rojas, la carne de cuy es baja en grasas y colesterol, lo que la convierte en una opción ideal para aquellos que buscan una dieta saludable y equilibrada. Consumir cuy puede ayudar a mantener niveles saludables de colesterol y promover la salud cardiovascular.</p>
+            </div>
+            <div class="product-section">
+                <h2>VERSATILIDAD CULINARIA</h2>
+                <img src="img/CUY 4.jpg" class="product-img" alt="Cuy en el Campo">
+                <p>La carne de cuy es versátil y se puede preparar de diversas maneras, desde asada hasta en guisos tradicionales. Esta variedad no solo proporciona opciones deliciosas y nutritivas para tus comidas, sino que también permite disfrutar de la rica herencia culinaria que ofrece la preparación del cuy.</p>
+            </div>
+            <h1 class="section-title">Recetas</h1>
+            <table>
+                <tr>
+                    <td>
+                        <img src="img/cuy chactado.jpg" class="recipe-img" alt="CUY CHACTADO">
+                        <p class="recipe-description">En este link encontrarás la receta más exquisita en preparación de cuy chactado <a href="https://www.comida-peruana.com/recetas/plato-principal/cuy-chactado" target="_blank">aquí</a>.</p>
+                    </td>
+                    <td>
+                        <img src="img/pepian de cuy.jpg" class="recipe-img" alt="PEPIAN DE CUY">
+                        <p class="recipe-description">En este link encontrarás la receta más exquisita en preparación de pepián de cuy <a href="https://recetasconcuy.com/pepian-de-cuy/" target="_blank">aquí</a>.</p>
+                    </td>
+                    <td>
+                        <img src="img/cuy al horno.jpg" class="recipe-img" alt="CUY AL HORNO">
+                        <p class="recipe-description">En este link encontrarás la receta más exquisita en preparación de cuy al horno <a href="https://recetasconcuy.com/cuy-al-horno/" target="_blank">aquí</a>.</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </main>
+    <section aria-label="Mapa y Contactos">
+        <div class="container">
+            <article>
+                <hgroup>
+                    <h2>Contactos 945790931</h2>
+                    <h3>San Isidro Primer Asentamiento LoteB-56 - La Joya</h3>
+                </hgroup>
+                <p>Encuéntranos en el mapa y síguenos en nuestras redes sociales.</p>
+                <img src="C:/Users/DELL/Music/PAGINA/img/csscontacto_imagen.jpg.jpeg" alt="Mapa de Contacto" width="600" height="450">
+                <p>
+                 
+                    <a href="https://wa.me/51945790931" target="_blank">WhatsApp</a>  
+                
+                </p>
+            </article>
+        </div>
+    </section>
+    <footer class="container">
+        <small>&copy; 2024 Venta de Cuyes. Todos los derechos reservados.</small>
+    </footer>
+</body>
+
+</html>
+

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Venta de Cuyes - Productos</title>
+    <link href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #126332;
+            text-align: center;
+            color: #000000;
+        }
+
+        header img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        nav {
+            background-color: rgb(214, 214, 6);
+            padding: 10px;
+            border-bottom: 1px solid #126332;
+        }
+
+        nav a, nav strong {
+            color: #126332;
+            margin: 0 15px;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .product-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px 0;
+        }
+
+        .product-img {
+            width: 300px; /* Tamaño aumentado */
+            height: auto;
+            border-radius: 15px; /* Bordes redondeados */
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Efectos de transición */
+            cursor: pointer; /* Indicador de clic */
+        }
+
+        .product-img:hover {
+            transform: scale(1.05); /* Efecto de zoom al pasar el ratón */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra al pasar el ratón */
+        }
+
+        .product-description {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 14px; /* Tamaño de letra reducido */
+            background-color: rgba(255, 255, 255, 0.5); /* Fondo blanco transparente */
+            padding: 20px;
+            border-radius: 10px; /* Bordes redondeados */
+            color: #000000; /* Color de letra negro */
+            transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Efecto de transición */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+        }
+
+        .product-description:hover {
+            background-color: rgba(255, 255, 255, 0.7); /* Fondo más opaco al pasar el ratón */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+        }
+
+        footer {
+            margin-top: 40px;
+        }
+
+        /* Estilos para el modal */
+        .modal {
+            display: none; /* Oculto por defecto */
+            position: fixed; /* Posición fija */
+            z-index: 1; /* Aparece por encima del contenido */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto; /* Habilita el scroll si es necesario */
+            background-color: rgba(0, 0, 0, 0.9); /* Fondo negro con opacidad */
+        }
+
+        .modal-content {
+            margin: 15% auto; /* Centrado vertical y horizontal */
+            display: block;
+            width: 80%;
+            max-width: 700px; /* Tamaño máximo */
+            border-radius: 15px; /* Bordes redondeados */
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header class="container">
+        <img src="img/Sin título-565.jpg" alt="Logo de Cuyes">
+    </header>
+    <nav class="container-fluid">
+        <ul>
+            <li><a href="file:///C:/Users/DELL/Music/PAGINA/index.html">Inicio</a></li>
+            <li><a href="file:///C:/Users/DELL/Music/PAGINA/Untitled-1.html">Productos</a></li>
+            <li><a href="file:///C:/Users/DELL/Music/PAGINA/Untitled-2.html">Contactos</a></li>
+        </ul>
+    </nav>
+    <main class="container">
+        <h1>Productos</h1>
+        <div class="product-section">
+            <img src="C:/Users/DELL/Music/PAGINA/img/cuyes-peru-crianza-andina.jpg" class="product-img" alt="Producto 1" onclick="openModal(this)">
+            <img src="C:/Users/DELL/Music/PAGINA/img/images.jpg" class="product-img" alt="Producto 2" onclick="openModal(this)">
+            <img src="C:/Users/DELL/Music/PAGINA/img/images (1).jpg" class="product-img" alt="Producto 3" onclick="openModal(this)">
+        </div>
+        <p class="product-description">En "EL CUIS CUIS" ofrecemos cuyes tanto beneficiados como para reproducción de la más alta calidad, gracias a una alimentación balanceada y un estricto control sanitario que aseguran animales saludables y libres de enfermedades. Con años de experiencia en el sector y personal continuamente capacitado, garantizamos productos confiables y consistentes. Nuestra flexibilidad nos permite adaptarnos a las necesidades específicas de nuestros clientes, ofreciendo una amplia gama de cuyes y opciones personalizadas. Además, implementamos prácticas sostenibles y responsables, minimizando el impacto ambiental y promoviendo el bienestar animal, al tiempo que nos comprometemos con el desarrollo económico y social de la comunidad local. Nuestro excelente servicio al cliente incluye asesoría experta para ayudar a seleccionar los cuyes que mejor se adapten a sus necesidades.</p>
+    </main>
+    <footer class="container">
+        <small>&copy; 2024 Venta de Cuyes. Todos los derechos reservados.</small>
+    </footer>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImg">
+    </div>
+
+    <script>
+        function openModal(img) {
+            var modal = document.getElementById("myModal");
+            var modalImg = document.getElementById("modalImg");
+            modal.style.display = "block";
+            modalImg.src = img.src;
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+
+        // Cierra el modal al hacer clic fuera de la imagen
+        window.onclick = function(event) {
+            var modal = document.getElementById("myModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
